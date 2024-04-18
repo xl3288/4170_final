@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <style>
+    .row {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .h1 {
+      text-align: center;
+      color: black;
+    }
+
+    .maintext {
+      color: black;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .card {
+        text-align: center;
+        width: 250px;
+        height: auto;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+
+  <script>
+    var card_dict = {{card_dict|tojson}}
+    console.log(card_dict)
+  </script>
+
+
+  <script type="text/javascript" src="{{url_for('static', filename='welcome.js')}}"></script>
+
+  <div class="row">
+    <h1 class="col-md-12 h1"> Let's play Splendor!! </h1>
+  </div>
+  <div class="row">
+    <img class="col-md-12" src="https://cdn.akamai.steamstatic.com/steam/apps/376680/capsule_616x353.jpg?t=1705574815">
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <button class="btn btn-primary col-md-3" id="learn_button">Learn the Rules</button>
+    <div class="col-md-2"></div>
+    <button class="btn btn-primary col-md-3" id="play_button">Play the Game</button>
+    <div class="col-md-2"></div>
+  </div>
+
+{% endblock %}

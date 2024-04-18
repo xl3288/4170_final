@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <style>
+    .cointext {
+      color: black;
+      text-align: center;
+    }
+    .h1 {
+      text-align: center;
+      color: black;
+    }
+    .h2 {
+      color: darkgrey;
+    }
+    .selected {
+      border: solid 5px blue;
+    }
+    .dblselected {
+      border: solid 5px green;
+    }
+  </style>
+
+  <script>
+    var card_dict = {{card_dict|tojson}}
+    console.log(card_dict)
+    var board_state = {{board_state|tojson}}
+    console.log(board_state)
+  </script>
+
+  <script type="text/javascript" src="{{url_for('static', filename='play.js')}}"></script>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="col-md-12 h1"> Play the Game </h1>
+    </div>
+    <div class="row">
+      <h2 class="col-md-12 h2">Game Board</h2>
+    </div>
+    <div id="three_star_zone"></div>
+    <div id="two_star_zone"></div>
+    <div id="one_star_zone"></div>
+    <div id="coin_zone1"></div>
+    <div id="coin_zone2"></div>
+    <div id="coin_num_zone"></div>
+    <br>
+    <div class="row">
+      <h2 class="col-md-12 h2">Opponent Tokens</h2>
+    </div>
+    <div id="oppo_token_zone"></div>
+    <div class="row">
+      <h2 class="col-md-12 h2">Opponent Bonuses</h2>
+    </div>
+    <div id="oppo_bonus_zone"></div>
+    <div class="row">
+      <h2 class="col-md-12 h2">Opponent Points</h2>
+    </div>
+    <div id="oppo_point_zone"></div>
+    <br>
+    <div class="row">
+      <h2 class="col-md-12 h2">Player Tokens</h2>
+    </div>
+    <div id="my_token_zone"></div>
+    <div class="row">
+      <h2 class="col-md-12 h2">Player Bonuses</h2>
+    </div>
+    <div id="my_bonus_zone"></div>
+    <div class="row">
+      <h2 class="col-md-12 h2">Player Points</h2>
+    </div>
+    <div id="my_point_zone"></div>
+    <br>
+    <div class="row">
+      <h2 class="col-md-12 h2">Current Turn</h2>
+    </div>
+<!--    <div id="oppo_action_zone"></div>-->
+    <p>Your turn now: Please select tokens or buy a card</p>
+    <br>
+    <div class="row">
+      <div class="col-md-5"></div>
+      <button class="btn btn-primary col-md-2" id="finish_button">Finish My Turn</button>
+      <div class="col-md-5"></div>
+    </div>
+  </div>
+</body>
+
+
+{% endblock %}

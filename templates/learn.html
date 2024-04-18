@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <style>
+    .h6 {
+      color: lightgrey;
+    }
+
+    .h2 {
+      color: darkgrey;
+    }
+
+    .h1 {
+      text-align: center;
+      color: black;
+    }
+  </style>
+  <script>
+    var res = {{res|tojson}}
+    console.log(res)
+    var next_id = {{next_id|tojson}}
+    console.log(next_id)
+  </script>
+
+  <script type="text/javascript" src="{{url_for('static', filename='learn.js')}}"></script>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="col-md-12 h1"> Learn the Rules </h1>
+    </div>
+
+    <div class="row">
+      <h2 class="col-md-12 h2" id="title"></h2>
+    </div>
+
+    <div id="img_zone"></div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-5"></div>
+      <button class="btn btn-primary col-md-2" id="cond_button">Next</button>
+      <div class="col-md-5"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+</body>
+
+{% endblock %}
