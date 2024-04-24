@@ -188,18 +188,21 @@
     oppo_action_zone.append(oppo_action_content)
     $("#oppo_action_zone").append(oppo_action_zone)
 
+    if (board_state['my_point'] >= 15) {
+        game_end("You won!")
+    }
+
+    if (board_state['oppo_point'] >= 15) {
+        game_end("The opponent won.")
+    }
   }
 
-  function save_selections() {
-    var total_clicked = []
-    $(".selected").each(function() {
-      total_clicked.push(this.src)
-    })
-
-    var save_res = [total_clicked, board_state]
+  function save_selections(selected_cards) {
+    var save_res = [selected_cards, board_state]
     console.log(save_res)
 
     $.ajax({
+        async: false,
         type: "POST",
         url: "finish_turn",
         dataType: "json",
@@ -221,9 +224,39 @@
     })
   }
 
+  function check_fields_correct(selected_cards, board_state) {
+    var overall_flag = true
+    var error_message = ""
+    $("#player_warning").empty()
+    var check_res = [selected_cards, board_state]
+
+    $.ajax({
+        async: false,
+        type: "POST",
+        url: "check_fields",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(check_res),
+        success: function(result) {
+            overall_flag = result['check_flag']
+            error_message = result['error_msg']
+            $("#player_warning").append(error_message)
+            console.log(error_message)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    })
+
+    return overall_flag
+  }
+
   function invoke_clicking() {
     var click_counter = {}
-    $('img').click(function() {
+    $('img').off("click").on("click", function() {
       if (this.src in click_counter) {
         click_counter[this.src] = click_counter[this.src] + 1
       } else {
@@ -239,8 +272,35 @@
       console.log(this.src)
     })
 
-    $("#finish_button").click(function() {
-      save_selections()
+    $("#finish_button").off("click").on("click", function() {
+      var total_clicked = []
+      $(".selected").each(function() {
+        total_clicked.push(this.src)
+      })
+
+      if (check_fields_correct(total_clicked, board_state)) {
+        save_selections(total_clicked)
+      }
+    })
+  }
+
+  function game_end(end_msg) {
+    var end_msg_zone = $("<div class='row'></div>")
+    var end_msg_content = $("<div class='col-md-12'></div>")
+    end_msg_content.html("Game Ended! " + end_msg)
+    end_msg_zone.append(end_msg_content)
+    $("#end_msg_zone").append(end_msg_zone)
+
+    $("#endDialog")[0].showModal()
+
+    $("#homeBtn").click(function (event) {
+      $("#endDialog")[0].close()
+      window.location.href = "/"
+    })
+
+    $("#restartBtn").click(function (event) {
+      $("#endDialog")[0].close()
+      window.location.href = "/play"
     })
   }
 

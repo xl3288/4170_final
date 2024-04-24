@@ -18,13 +18,23 @@
       text-align: center;
     }
 
-    .card {
-        text-align: center;
-        width: 250px;
-        height: auto;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
+    .intel_font_title {
+      font-family: Georgia;
+      color: black;
+      font-weight: bold;
+    }
+
+    .intel_font_text {
+      font-family: Georgia;
+      color: white;
+    }
+
+    .btn-primary {
+      width: 200px;
+      padding: 10px 10px;
+      text-align: center;
+      display: inline-block;
+      font-size: 20px;
     }
   </style>
 
@@ -37,18 +47,18 @@
   <script type="text/javascript" src="{{url_for('static', filename='welcome.js')}}"></script>
 
   <div class="row">
-    <h1 class="col-md-12 h1"> Let's play Splendor!! </h1>
+    <h1 class="col-md-12 h1 intel_font_title"> How to play Splendor? </h1>
   </div>
   <div class="row">
     <img class="col-md-12" src="https://cdn.akamai.steamstatic.com/steam/apps/376680/capsule_616x353.jpg?t=1705574815">
   </div>
 
   <div class="row">
+    <div class="col-md-3"></div>
+    <button class="btn btn-primary intel_font_text" id="learn_button">Learn the Rules</button>
     <div class="col-md-2"></div>
-    <button class="btn btn-primary col-md-3" id="learn_button">Learn the Rules</button>
-    <div class="col-md-2"></div>
-    <button class="btn btn-primary col-md-3" id="play_button">Play the Game</button>
-    <div class="col-md-2"></div>
+    <button class="btn btn-primary intel_font_text" id="play_button">Play the Game</button>
+    <div class="col-md-3"></div>
   </div>
 
 {% endblock %}

@@ -16,8 +16,8 @@
     .selected {
       border: solid 5px blue;
     }
-    .dblselected {
-      border: solid 5px green;
+    .warning {
+      color: red;
     }
   </style>
 
@@ -74,7 +74,7 @@
     <div class="row">
       <h2 class="col-md-12 h2">Current Turn</h2>
     </div>
-<!--    <div id="oppo_action_zone"></div>-->
+    <div id="oppo_action_zone"></div>
     <p>Your turn now: Please select tokens or buy a card</p>
     <br>
     <div class="row">
@@ -82,6 +82,13 @@
       <button class="btn btn-primary col-md-2" id="finish_button">Finish My Turn</button>
       <div class="col-md-5"></div>
     </div>
+    <div class="warning" id="player_warning"></div>
+
+    <dialog id="endDialog">
+      <div id="end_msg_zone"></div>
+      <button id="homeBtn" value="home" formmethod="dialog">Back to Homepage</button>
+      <button id="restartBtn" value="restart" formmethod="dialog">Restart Game</button>
+    </dialog>
   </div>
 </body>
 
