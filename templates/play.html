@@ -18,7 +18,52 @@
     }
     .warning {
       color: red;
+      text-align: right;
     }
+
+    .title {
+      color: #0096FF;
+      font-family: Georgia;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .intel_font_title {
+      font-family: Georgia;
+      color: black;
+      font-weight: bold;
+    }
+    .intel_font_text {
+      font-family: FreeMono;
+    }
+
+    .player_title {
+      color: green;
+      font-family: Georgia;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .player_point {
+      font-family: Georgia;
+      font-weight: bold;
+      font-size: 50px;
+      color: green;
+    }
+
+    .oppo_title {
+      color: peru;
+      font-family: Georgia;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .oppo_point {
+      font-family: Georgia;
+      font-weight: bold;
+      font-size: 50px;
+      color: peru;
+    }
+
   </style>
 
   <script>
@@ -33,62 +78,56 @@
 <body>
   <div class="container">
     <div class="row">
-      <h1 class="col-md-12 h1"> Play the Game </h1>
+      <h1 class="col-md-12 h1 intel_font_title"> Play the Game </h1>
     </div>
     <div class="row">
-      <h2 class="col-md-12 h2">Game Board</h2>
+      <div class="col-md-12 title">Current Turn</div>
     </div>
-    <div id="three_star_zone"></div>
-    <div id="two_star_zone"></div>
-    <div id="one_star_zone"></div>
-    <div id="coin_zone1"></div>
-    <div id="coin_zone2"></div>
-    <div id="coin_num_zone"></div>
-    <br>
+    <div class="intel_font_text" id="oppo_action_zone"></div>
+    <p class="intel_font_text">Your turn now: Please select tokens or buy a card</p>
+
     <div class="row">
-      <h2 class="col-md-12 h2">Opponent Tokens</h2>
+      <h2 class="col-md-10 title">Game Board</h2>
+      <h2 class="col-md-2 title">Score Board</h2>
     </div>
-    <div id="oppo_token_zone"></div>
     <div class="row">
-      <h2 class="col-md-12 h2">Opponent Bonuses</h2>
+      <div class="col-md-10">
+        <div id="three_star_zone"></div>
+        <div id="two_star_zone"></div>
+        <div id="one_star_zone"></div>
+        <div id="coin_zone1"></div>
+        <div id="coin_zone2"></div>
+        <div class="intel_font_text" id="coin_num_zone"></div>
+      </div>
+      <div class="col-md-2">
+        <br>
+        <div style="width: 250px; border: 8px solid green; border-radius: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 30px;">
+          <div class="player_title"> Player Board</div>
+          <div id="my_point_zone"></div>
+          <div class="player_title"> Token&emsp;Bonus</div>
+          <div id="my_info_zone"></div>
+        </div>
+        <br>
+        <div style="width: 250px; border: 8px solid peru; border-radius: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 30px;">
+          <div class="oppo_title"> Opponent Board</div>
+          <div id="oppo_point_zone"></div>
+          <div class="oppo_title"> Token&emsp;Bonus</div>
+          <div id="oppo_info_zone"></div>
+        </div>
+      </div>
     </div>
-    <div id="oppo_bonus_zone"></div>
     <div class="row">
-      <h2 class="col-md-12 h2">Opponent Points</h2>
-    </div>
-    <div id="oppo_point_zone"></div>
-    <br>
-    <div class="row">
-      <h2 class="col-md-12 h2">Player Tokens</h2>
-    </div>
-    <div id="my_token_zone"></div>
-    <div class="row">
-      <h2 class="col-md-12 h2">Player Bonuses</h2>
-    </div>
-    <div id="my_bonus_zone"></div>
-    <div class="row">
-      <h2 class="col-md-12 h2">Player Points</h2>
-    </div>
-    <div id="my_point_zone"></div>
-    <br>
-    <div class="row">
-      <h2 class="col-md-12 h2">Current Turn</h2>
-    </div>
-    <div id="oppo_action_zone"></div>
-    <p>Your turn now: Please select tokens or buy a card</p>
-    <br>
-    <div class="row">
+      <div class="col-md-5"></div>
       <div class="col-md-5"></div>
       <button class="btn btn-primary col-md-2" id="finish_button">Finish My Turn</button>
-      <div class="col-md-5"></div>
     </div>
     <div class="warning" id="player_warning"></div>
 
-    <dialog id="endDialog">
-      <div id="end_msg_zone"></div>
-      <button id="homeBtn" value="home" formmethod="dialog">Back to Homepage</button>
-      <button id="restartBtn" value="restart" formmethod="dialog">Restart Game</button>
-    </dialog>
+<!--    <dialog id="endDialog">-->
+<!--      <div id="end_msg_zone"></div>-->
+<!--      <button id="homeBtn" value="home" formmethod="dialog">Back to Homepage</button>-->
+<!--      <button id="restartBtn" value="restart" formmethod="dialog">Restart Game</button>-->
+<!--    </dialog>-->
   </div>
 </body>
 

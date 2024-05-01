@@ -46,7 +46,7 @@ learn_data = [
         "id": 5,
         "title": "4. Game Setup",
         "image": "static/learn/img5.png",
-        "text": ["At the beginning of the game: Shuffle each development card level deck separately and place them face down; Reveal 4 cards from each level; Place the tokens in 5 distinct piles"],
+        "text": ["At the beginning of the game:\n(1) Shuffle each development card level deck separately and place them face down;\n(2) Reveal 4 cards from each level;\n(3) Place the tokens in 5 distinct piles"],
         "highlight_text": ["Shuffle", "face down", "Reveal 4 cards", "tokens in 5 distinct piles"],
     },
     {
@@ -54,7 +54,7 @@ learn_data = [
         "title": "5. Player Action",
         "image": "static/learn/img5.png",
         "text": [
-            "On their turn, a player choose to perform only one of the three actions: (1) Take 3 tokens of different color; (2) Take 2 tokens of the same color; (3) Purchase 1 face-up development card from the revealed selections.",
+            "On their turn, a player choose to perform only one of the three actions:\n(1) Take 3 tokens of different color;\n(2) Take 2 tokens of the same color;\n(3) Purchase 1 face-up development card from the revealed selections.",
             "* Youngest player starts first",],
         "highlight_text": ["3 tokens of different color", "2 tokens of the same color", "1 face-up development card"],
     },
@@ -330,6 +330,11 @@ def check_fields():
             error_msg = "You must not select more than 1 card"
 
     return jsonify(check_flag=check_flag, error_msg=error_msg)
+
+@app.route('/game_end/<id>')
+def game_end(id):
+    id = int(id)
+    return render_template('game_end.html', card_dict=card_dict, end_id=id)
 
 if __name__ == '__main__':
    app.run(debug = True)

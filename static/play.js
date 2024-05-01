@@ -6,11 +6,9 @@
     $("#coin_zone1").empty()
     $("#coin_zone2").empty()
     $("#coin_num_zone").empty()
-    $("#oppo_token_zone").empty()
-    $("#oppo_bonus_zone").empty()
+    $("#oppo_info_zone").empty()
     $("#oppo_point_zone").empty()
-    $("#my_token_zone").empty()
-    $("#my_bonus_zone").empty()
+    $("#my_info_zone").empty()
     $("#my_point_zone").empty()
     $("#oppo_action_zone").empty()
 
@@ -97,89 +95,50 @@
     coin_num_zone.append(coin_num_black)
     $("#coin_num_zone").append(coin_num_zone)
 
-    var oppo_token_zone = $("<div class='row'></div>")
-    var oppo_token_white = $("<div class='col-md-2 cointext'></div>")
-    oppo_token_white.html("White: " + board_state['oppo_token']['white'])
-    var oppo_token_red = $("<div class='col-md-2 cointext'></div>")
-    oppo_token_red.html("Red: " + board_state['oppo_token']['red'])
-    var oppo_token_green = $("<div class='col-md-2 cointext'></div>")
-    oppo_token_green.html("Green: " + board_state['oppo_token']['green'])
-    var oppo_token_blue = $("<div class='col-md-2 cointext'></div>")
-    oppo_token_blue.html("Blue: " + board_state['oppo_token']['blue'])
-    var oppo_token_black = $("<div class='col-md-2 cointext'></div>")
-    oppo_token_black.html("Black: " + board_state['oppo_token']['black'])
-    oppo_token_zone.append(oppo_token_white)
-    oppo_token_zone.append(oppo_token_red)
-    oppo_token_zone.append(oppo_token_green)
-    oppo_token_zone.append(oppo_token_blue)
-    oppo_token_zone.append(oppo_token_black)
-    $("#oppo_token_zone").append(oppo_token_zone)
-    
-    var oppo_bonus_zone = $("<div class='row'></div>")
-    var oppo_bonus_white = $("<div class='col-md-2 cointext'></div>")
-    oppo_bonus_white.html("White: " + board_state['oppo_bonus']['white'])
-    var oppo_bonus_red = $("<div class='col-md-2 cointext'></div>")
-    oppo_bonus_red.html("Red: " + board_state['oppo_bonus']['red'])
-    var oppo_bonus_green = $("<div class='col-md-2 cointext'></div>")
-    oppo_bonus_green.html("Green: " + board_state['oppo_bonus']['green'])
-    var oppo_bonus_blue = $("<div class='col-md-2 cointext'></div>")
-    oppo_bonus_blue.html("Blue: " + board_state['oppo_bonus']['blue'])
-    var oppo_bonus_black = $("<div class='col-md-2 cointext'></div>")
-    oppo_bonus_black.html("Black: " + board_state['oppo_bonus']['black'])
-    oppo_bonus_zone.append(oppo_bonus_white)
-    oppo_bonus_zone.append(oppo_bonus_red)
-    oppo_bonus_zone.append(oppo_bonus_green)
-    oppo_bonus_zone.append(oppo_bonus_blue)
-    oppo_bonus_zone.append(oppo_bonus_black)
-    $("#oppo_bonus_zone").append(oppo_bonus_zone)
-    
-    var oppo_point_zone = $("<div class='row'></div>")
-    var oppo_point_content = $("<div class='col-md-2 cointext'></div>")
-    oppo_point_content.html("Prestige Points: " + board_state['oppo_point'])
-    oppo_point_zone.append(oppo_point_content)
-    $("#oppo_point_zone").append(oppo_point_zone)
-    
-    var my_token_zone = $("<div class='row'></div>")
-    var my_token_white = $("<div class='col-md-2 cointext'></div>")
-    my_token_white.html("White: " + board_state['my_token']['white'])
-    var my_token_red = $("<div class='col-md-2 cointext'></div>")
-    my_token_red.html("Red: " + board_state['my_token']['red'])
-    var my_token_green = $("<div class='col-md-2 cointext'></div>")
-    my_token_green.html("Green: " + board_state['my_token']['green'])
-    var my_token_blue = $("<div class='col-md-2 cointext'></div>")
-    my_token_blue.html("Blue: " + board_state['my_token']['blue'])
-    var my_token_black = $("<div class='col-md-2 cointext'></div>")
-    my_token_black.html("Black: " + board_state['my_token']['black'])
-    my_token_zone.append(my_token_white)
-    my_token_zone.append(my_token_red)
-    my_token_zone.append(my_token_green)
-    my_token_zone.append(my_token_blue)
-    my_token_zone.append(my_token_black)
-    $("#my_token_zone").append(my_token_zone)
+    var my_point_point = $("<span class='player_point'></span>")
+    my_point_point.html(board_state['my_point'])
+    var my_point_text = $("<span class='player_title'>Prestige Points</span>")
+    $("#my_point_zone").append(my_point_point)
+    $("#my_point_zone").append(my_point_text)
 
-    var my_bonus_zone = $("<div class='row'></div>")
-    var my_bonus_white = $("<div class='col-md-2 cointext'></div>")
-    my_bonus_white.html("White: " + board_state['my_bonus']['white'])
-    var my_bonus_red = $("<div class='col-md-2 cointext'></div>")
-    my_bonus_red.html("Red: " + board_state['my_bonus']['red'])
-    var my_bonus_green = $("<div class='col-md-2 cointext'></div>")
-    my_bonus_green.html("Green: " + board_state['my_bonus']['green'])
-    var my_bonus_blue = $("<div class='col-md-2 cointext'></div>")
-    my_bonus_blue.html("Blue: " + board_state['my_bonus']['blue'])
-    var my_bonus_black = $("<div class='col-md-2 cointext'></div>")
-    my_bonus_black.html("Black: " + board_state['my_bonus']['black'])
-    my_bonus_zone.append(my_bonus_white)
-    my_bonus_zone.append(my_bonus_red)
-    my_bonus_zone.append(my_bonus_green)
-    my_bonus_zone.append(my_bonus_blue)
-    my_bonus_zone.append(my_bonus_black)
-    $("#my_bonus_zone").append(my_bonus_zone)
-    
-    var my_point_zone = $("<div class='row'></div>")
-    var my_point_content = $("<div class='col-md-2 cointext'></div>")
-    my_point_content.html("Prestige Points: " + board_state['my_point'])
-    my_point_zone.append(my_point_content)
-    $("#my_point_zone").append(my_point_zone)
+    var my_info_white = $("<p class='intel_font_text'></p>")
+    my_info_white.html(board_state['my_token']['white'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['my_bonus']['white'] + "&emsp;(White)")
+    var my_info_red = $("<p class='intel_font_text'></p>")
+    my_info_red.html(board_state['my_token']['red'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['my_bonus']['red'] + "&emsp;(Red)")
+    var my_info_green = $("<p class='intel_font_text'></p>")
+    my_info_green.html(board_state['my_token']['green'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['my_bonus']['green'] + "&emsp;(Green)")
+    var my_info_blue = $("<p class='intel_font_text'></p>")
+    my_info_blue.html(board_state['my_token']['blue'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['my_bonus']['blue'] + "&emsp;(Blue)")
+    var my_info_black = $("<p class='intel_font_text'></p>")
+    my_info_black.html(board_state['my_token']['black'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['my_bonus']['black'] + "&emsp;(Black)")
+    $("#my_info_zone").append(my_info_white)
+    $("#my_info_zone").append(my_info_red)
+    $("#my_info_zone").append(my_info_green)
+    $("#my_info_zone").append(my_info_blue)
+    $("#my_info_zone").append(my_info_black)
+
+
+    var oppo_point_point = $("<span class='oppo_point'></span>")
+    oppo_point_point.html(board_state['oppo_point'])
+    var oppo_point_text = $("<span class='oppo_title'>Prestige Points</span>")
+    $("#oppo_point_zone").append(oppo_point_point)
+    $("#oppo_point_zone").append(oppo_point_text)
+
+    var oppo_info_white = $("<p class='intel_font_text'></p>")
+    oppo_info_white.html(board_state['oppo_token']['white'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['oppo_bonus']['white'] + "&emsp;(White)")
+    var oppo_info_red = $("<p class='intel_font_text'></p>")
+    oppo_info_red.html(board_state['oppo_token']['red'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['oppo_bonus']['red'] + "&emsp;(Red)")
+    var oppo_info_green = $("<p class='intel_font_text'></p>")
+    oppo_info_green.html(board_state['oppo_token']['green'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['oppo_bonus']['green'] + "&emsp;(Green)")
+    var oppo_info_blue = $("<p class='intel_font_text'></p>")
+    oppo_info_blue.html(board_state['oppo_token']['blue'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['oppo_bonus']['blue'] + "&emsp;(Blue)")
+    var oppo_info_black = $("<p class='intel_font_text'></p>")
+    oppo_info_black.html(board_state['oppo_token']['black'] + "&emsp;&emsp;&emsp;&ensp;" + board_state['oppo_bonus']['black'] + "&emsp;(Black)")
+    $("#oppo_info_zone").append(oppo_info_white)
+    $("#oppo_info_zone").append(oppo_info_red)
+    $("#oppo_info_zone").append(oppo_info_green)
+    $("#oppo_info_zone").append(oppo_info_blue)
+    $("#oppo_info_zone").append(oppo_info_black)
 
 
     var oppo_action_zone = $("<div class='row'></div>")
@@ -189,11 +148,11 @@
     $("#oppo_action_zone").append(oppo_action_zone)
 
     if (board_state['my_point'] >= 15) {
-        game_end("You won!")
+        window.location.href = "/game_end/1"
     }
 
     if (board_state['oppo_point'] >= 15) {
-        game_end("The opponent won.")
+        window.location.href = "/game_end/0"
     }
   }
 
@@ -284,25 +243,25 @@
     })
   }
 
-  function game_end(end_msg) {
-    var end_msg_zone = $("<div class='row'></div>")
-    var end_msg_content = $("<div class='col-md-12'></div>")
-    end_msg_content.html("Game Ended! " + end_msg)
-    end_msg_zone.append(end_msg_content)
-    $("#end_msg_zone").append(end_msg_zone)
-
-    $("#endDialog")[0].showModal()
-
-    $("#homeBtn").click(function (event) {
-      $("#endDialog")[0].close()
-      window.location.href = "/"
-    })
-
-    $("#restartBtn").click(function (event) {
-      $("#endDialog")[0].close()
-      window.location.href = "/play"
-    })
-  }
+//  function game_end(end_msg) {
+//    var end_msg_zone = $("<div class='row'></div>")
+//    var end_msg_content = $("<div class='col-md-12'></div>")
+//    end_msg_content.html("Game Ended! " + end_msg)
+//    end_msg_zone.append(end_msg_content)
+//    $("#end_msg_zone").append(end_msg_zone)
+//
+//    $("#endDialog")[0].showModal()
+//
+//    $("#homeBtn").click(function (event) {
+//      $("#endDialog")[0].close()
+//      window.location.href = "/"
+//    })
+//
+//    $("#restartBtn").click(function (event) {
+//      $("#endDialog")[0].close()
+//      window.location.href = "/play"
+//    })
+//  }
 
   $(document).ready(function() {
     display_board(board_state)
